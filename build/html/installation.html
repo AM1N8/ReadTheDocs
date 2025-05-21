@@ -1,0 +1,346 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation &mdash; TimeSeriesDocumentation 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/style.css?v=272ca84e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Data API" href="api/data.html" />
+    <link rel="prev" title="Overview" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            TimeSeriesDocumentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#system-architecture">System Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#key-concepts">Key Concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#relative-displacement-representation">Relative Displacement Representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#point-cloud-processing">Point Cloud Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#trajectory-evaluation">Trajectory Evaluation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#use-cases">Use Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#technology-stack">Technology Stack</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#required-dependencies">Required Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-options">Installation Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installing-from-pypi">Installing from PyPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-from-source">Installing from Source</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#carla-simulator-setup">CARLA Simulator Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#verifying-installation">Verifying Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#common-issues">Common Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#system-specific-notes">System-Specific Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-help">Getting Help</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/data.html">Data API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/data.html#data-loading">Data Loading</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#load_lidar_point_cloud"><code class="docutils literal notranslate"><span class="pre">load_lidar_point_cloud()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#map_timestamps_to_lidar"><code class="docutils literal notranslate"><span class="pre">map_timestamps_to_lidar()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/data.html#point-cloud-processing">Point Cloud Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#sample_point_cloud"><code class="docutils literal notranslate"><span class="pre">sample_point_cloud()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#process_point_cloud"><code class="docutils literal notranslate"><span class="pre">process_point_cloud()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/data.html#vehicle-data-processing">Vehicle Data Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#calculate_vehicle_dynamics"><code class="docutils literal notranslate"><span class="pre">calculate_vehicle_dynamics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#calculate_relative_displacement"><code class="docutils literal notranslate"><span class="pre">calculate_relative_displacement()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#filter_and_segment_data"><code class="docutils literal notranslate"><span class="pre">filter_and_segment_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/data.html#sequence-preparation">Sequence Preparation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#prepare_relative_sequences"><code class="docutils literal notranslate"><span class="pre">prepare_relative_sequences()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/data.html#utility-functions">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#convert_relative_to_absolute"><code class="docutils literal notranslate"><span class="pre">convert_relative_to_absolute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#calculate_steering_from_path"><code class="docutils literal notranslate"><span class="pre">calculate_steering_from_path()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/model.html">Model API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/model.html#model-architecture">Model Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/model.html#build_trajectory_prediction_model"><code class="docutils literal notranslate"><span class="pre">build_trajectory_prediction_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/model.html#point-cloud-encoder">Point Cloud Encoder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/model.html#build_point_cloud_encoder"><code class="docutils literal notranslate"><span class="pre">build_point_cloud_encoder()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/model.html#sequence-encoder">Sequence Encoder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/model.html#build_sequence_encoder"><code class="docutils literal notranslate"><span class="pre">build_sequence_encoder()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/model.html#loss-functions">Loss Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/model.html#weighted_displacement_loss"><code class="docutils literal notranslate"><span class="pre">weighted_displacement_loss()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/model.html#inference-functions">Inference Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/model.html#predict_future_trajectory"><code class="docutils literal notranslate"><span class="pre">predict_future_trajectory()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/model.html#model-serialization">Model Serialization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/training.html">Training API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/training.html#training-configuration">Training Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/training.html#build_and_train_model"><code class="docutils literal notranslate"><span class="pre">build_and_train_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/training.html#initialize_model_for_training"><code class="docutils literal notranslate"><span class="pre">initialize_model_for_training()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/training.html#training-callbacks">Training Callbacks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/training.html#early-stopping">Early Stopping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/training.html#learning-rate-scheduling">Learning Rate Scheduling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/training.html#model-checkpointing">Model Checkpointing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/training.html#hyperparameter-tuning">Hyperparameter Tuning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/training.html#tune_learning_rate"><code class="docutils literal notranslate"><span class="pre">tune_learning_rate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/training.html#data-augmentation">Data Augmentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/training.html#augment_sequence_data"><code class="docutils literal notranslate"><span class="pre">augment_sequence_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/training.html#augment_lidar_data"><code class="docutils literal notranslate"><span class="pre">augment_lidar_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/training.html#cross-validation">Cross-Validation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/training.html#perform_cross_validation"><code class="docutils literal notranslate"><span class="pre">perform_cross_validation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/training.html#training-visualization">Training Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/training.html#plot_training_history"><code class="docutils literal notranslate"><span class="pre">plot_training_history()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/evaluation.html">Evaluation API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/evaluation.html#metrics">Metrics</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#advanced-control">Advanced Control</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">TimeSeriesDocumentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
+<p>Before installing CARLA Trajectory Prediction, ensure you have the following prerequisites:</p>
+<ul class="simple">
+<li><p>Python 3.7+ (3.8 recommended)</p></li>
+<li><p>CARLA Simulator 0.9.10+ (for data collection)</p></li>
+<li><p>CUDA-compatible GPU (recommended for training)</p></li>
+<li><p>8GB+ RAM</p></li>
+</ul>
+</section>
+<section id="required-dependencies">
+<h2>Required Dependencies<a class="headerlink" href="#required-dependencies" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>TensorFlow 2.4+</p></li>
+<li><p>NumPy</p></li>
+<li><p>Pandas</p></li>
+<li><p>Matplotlib</p></li>
+<li><p>scikit-learn</p></li>
+<li><p>Plotly (for interactive visualizations)</p></li>
+<li><p>PlyFile (for LiDAR data processing)</p></li>
+<li><p>tqdm</p></li>
+</ul>
+</section>
+<section id="installation-options">
+<h2>Installation Options<a class="headerlink" href="#installation-options" title="Link to this heading"></a></h2>
+<section id="installing-from-pypi">
+<h3>Installing from PyPI<a class="headerlink" href="#installing-from-pypi" title="Link to this heading"></a></h3>
+<p>The easiest way to install CARLA Trajectory Prediction is through PyPI:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>carla-trajectory-prediction
+</pre></div>
+</div>
+</section>
+<section id="installing-from-source">
+<h3>Installing from Source<a class="headerlink" href="#installing-from-source" title="Link to this heading"></a></h3>
+<p>To install the latest development version:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/username/carla-trajectory-prediction.git
+<span class="nb">cd</span><span class="w"> </span>carla-trajectory-prediction
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</pre></div>
+</div>
+<p>This will install the package in development mode, allowing you to modify the code and immediately see the effects.</p>
+</section>
+</section>
+<section id="carla-simulator-setup">
+<h2>CARLA Simulator Setup<a class="headerlink" href="#carla-simulator-setup" title="Link to this heading"></a></h2>
+<p>To collect data for training and evaluation, you need to set up the CARLA simulator:</p>
+<ol class="arabic simple">
+<li><p>Download CARLA from the <a class="reference external" href="https://carla.org/">official website</a></p></li>
+<li><p>Extract the archive to a suitable location</p></li>
+<li><p>Set the environment variable:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">CARLA_ROOT</span><span class="o">=</span>/path/to/carla
+</pre></div>
+</div>
+</section>
+<section id="verifying-installation">
+<h2>Verifying Installation<a class="headerlink" href="#verifying-installation" title="Link to this heading"></a></h2>
+<p>To verify your installation is working correctly:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">carla_trajectory</span>
+<span class="n">carla_trajectory</span><span class="o">.</span><span class="n">check_installation</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>You should see a success message indicating that all components are properly installed.</p>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="common-issues">
+<h3>Common Issues<a class="headerlink" href="#common-issues" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p><strong>TensorFlow GPU not detected</strong></p>
+<p>Ensure you have the correct CUDA and cuDNN versions installed for your TensorFlow version.</p>
+</li>
+<li><p><strong>LiDAR data loading errors</strong></p>
+<p>Check that the PlyFile library is properly installed: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">plyfile</span></code></p>
+</li>
+<li><p><strong>Import errors</strong></p>
+<p>Make sure all dependencies are installed: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code></p>
+</li>
+</ol>
+</section>
+<section id="system-specific-notes">
+<h3>System-Specific Notes<a class="headerlink" href="#system-specific-notes" title="Link to this heading"></a></h3>
+<p><strong>Linux</strong>:</p>
+<blockquote>
+<div><p>For optimal performance, consider installing TensorFlow with specific optimizations:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">tensorflow</span><span class="o">==</span><span class="m">2</span>.8.0
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Windows</strong>:</p>
+<blockquote>
+<div><p>Make sure Visual C++ Redistributable is installed for PlyFile support.</p>
+</div></blockquote>
+<p><strong>macOS</strong>:</p>
+<blockquote>
+<div><p>TensorFlow performance may be limited. Consider using CPU-only mode.</p>
+</div></blockquote>
+</section>
+</section>
+<section id="getting-help">
+<h2>Getting Help<a class="headerlink" href="#getting-help" title="Link to this heading"></a></h2>
+<p>If you encounter any installation problems:</p>
+<ol class="arabic simple">
+<li><p>Check the <a class="reference external" href="https://github.com/username/carla-trajectory-prediction/wiki/FAQ">FAQ section</a></p></li>
+<li><p>Open an issue on our <a class="reference external" href="https://github.com/username/carla-trajectory-prediction/issues">GitHub repository</a></p></li>
+<li><p>Contact support at <a class="reference external" href="mailto:support&#37;&#52;&#48;example&#46;com">support<span>&#64;</span>example<span>&#46;</span>com</a></p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api/data.html" class="btn btn-neutral float-right" title="Data API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, cdxv.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

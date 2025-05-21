@@ -1,0 +1,550 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evaluation API &mdash; TimeSeriesDocumentation 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/style.css?v=272ca84e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Examples" href="../examples.html" />
+    <link rel="prev" title="Training API" href="training.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            TimeSeriesDocumentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#system-architecture">System Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#key-concepts">Key Concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../overview.html#relative-displacement-representation">Relative Displacement Representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview.html#point-cloud-processing">Point Cloud Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview.html#trajectory-evaluation">Trajectory Evaluation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#use-cases">Use Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#technology-stack">Technology Stack</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#required-dependencies">Required Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#installation-options">Installation Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#installing-from-pypi">Installing from PyPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#installing-from-source">Installing from Source</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#carla-simulator-setup">CARLA Simulator Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#verifying-installation">Verifying Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#common-issues">Common Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#system-specific-notes">System-Specific Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#getting-help">Getting Help</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="data.html">Data API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data.html#data-loading">Data Loading</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data.html#load_lidar_point_cloud"><code class="docutils literal notranslate"><span class="pre">load_lidar_point_cloud()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#map_timestamps_to_lidar"><code class="docutils literal notranslate"><span class="pre">map_timestamps_to_lidar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#load_camera_image"><code class="docutils literal notranslate"><span class="pre">load_camera_image()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#map_timestamps_to_images"><code class="docutils literal notranslate"><span class="pre">map_timestamps_to_images()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data.html#point-cloud-processing">Point Cloud Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data.html#sample_point_cloud"><code class="docutils literal notranslate"><span class="pre">sample_point_cloud()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#process_point_cloud"><code class="docutils literal notranslate"><span class="pre">process_point_cloud()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data.html#vehicle-data-processing">Vehicle Data Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data.html#calculate_vehicle_dynamics"><code class="docutils literal notranslate"><span class="pre">calculate_vehicle_dynamics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#calculate_relative_displacement"><code class="docutils literal notranslate"><span class="pre">calculate_relative_displacement()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#filter_and_segment_data"><code class="docutils literal notranslate"><span class="pre">filter_and_segment_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data.html#image-processing">Image Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data.html#process_camera_image"><code class="docutils literal notranslate"><span class="pre">process_camera_image()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#extract_road_features"><code class="docutils literal notranslate"><span class="pre">extract_road_features()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#augment_camera_images"><code class="docutils literal notranslate"><span class="pre">augment_camera_images()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data.html#map-data-processing">Map Data Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data.html#load_carla_map"><code class="docutils literal notranslate"><span class="pre">load_carla_map()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#get_map_image"><code class="docutils literal notranslate"><span class="pre">get_map_image()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#project_vehicle_to_map"><code class="docutils literal notranslate"><span class="pre">project_vehicle_to_map()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#visualize_trajectory_on_map"><code class="docutils literal notranslate"><span class="pre">visualize_trajectory_on_map()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data.html#sequence-preparation">Sequence Preparation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data.html#prepare_relative_sequences"><code class="docutils literal notranslate"><span class="pre">prepare_relative_sequences()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#prepare_multimodal_sequences"><code class="docutils literal notranslate"><span class="pre">prepare_multimodal_sequences()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data.html#data-collection">Data Collection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data.html#setup_carla_client"><code class="docutils literal notranslate"><span class="pre">setup_carla_client()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#configure_sensors"><code class="docutils literal notranslate"><span class="pre">configure_sensors()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#collect_vehicle_data"><code class="docutils literal notranslate"><span class="pre">collect_vehicle_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#capture_map_images"><code class="docutils literal notranslate"><span class="pre">capture_map_images()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data.html#utility-functions">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data.html#convert_relative_to_absolute"><code class="docutils literal notranslate"><span class="pre">convert_relative_to_absolute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#calculate_steering_from_path"><code class="docutils literal notranslate"><span class="pre">calculate_steering_from_path()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#world_to_pixel"><code class="docutils literal notranslate"><span class="pre">world_to_pixel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#pixel_to_world"><code class="docutils literal notranslate"><span class="pre">pixel_to_world()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Model API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model.html#model-architecture">Model Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="model.html#build_trajectory_prediction_model"><code class="docutils literal notranslate"><span class="pre">build_trajectory_prediction_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#point-cloud-encoder">Point Cloud Encoder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="model.html#build_point_cloud_encoder"><code class="docutils literal notranslate"><span class="pre">build_point_cloud_encoder()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#sequence-encoder">Sequence Encoder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="model.html#build_sequence_encoder"><code class="docutils literal notranslate"><span class="pre">build_sequence_encoder()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#loss-functions">Loss Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="model.html#weighted_displacement_loss"><code class="docutils literal notranslate"><span class="pre">weighted_displacement_loss()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#inference-functions">Inference Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="model.html#predict_future_trajectory"><code class="docutils literal notranslate"><span class="pre">predict_future_trajectory()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#model-serialization">Model Serialization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="training.html">Training API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="training.html#training-configuration">Training Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="training.html#build_and_train_model"><code class="docutils literal notranslate"><span class="pre">build_and_train_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#initialize_model_for_training"><code class="docutils literal notranslate"><span class="pre">initialize_model_for_training()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="training.html#training-callbacks">Training Callbacks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="training.html#early-stopping">Early Stopping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#learning-rate-scheduling">Learning Rate Scheduling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#model-checkpointing">Model Checkpointing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="training.html#hyperparameter-tuning">Hyperparameter Tuning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="training.html#tune_learning_rate"><code class="docutils literal notranslate"><span class="pre">tune_learning_rate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="training.html#data-augmentation">Data Augmentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="training.html#augment_sequence_data"><code class="docutils literal notranslate"><span class="pre">augment_sequence_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#augment_lidar_data"><code class="docutils literal notranslate"><span class="pre">augment_lidar_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="training.html#cross-validation">Cross-Validation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="training.html#perform_cross_validation"><code class="docutils literal notranslate"><span class="pre">perform_cross_validation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="training.html#training-visualization">Training Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="training.html#plot_training_history"><code class="docutils literal notranslate"><span class="pre">plot_training_history()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Evaluation API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#evaluation-methodology">Evaluation Methodology</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#evaluation-metrics">Evaluation Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#visualization-methods">Visualization Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trajectory-visualization">Trajectory Visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#results">Results</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#training-performance">Training Performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trajectory-prediction-results">Trajectory Prediction Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#control-system-evaluation">Control System Evaluation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#interactive-visualization">Interactive Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#evaluation-analysis">Evaluation Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#strengths">Strengths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#limitations">Limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#future-improvements">Future Improvements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples.html#advanced-control">Advanced Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples.html#visualization">Visualization</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">TimeSeriesDocumentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Evaluation API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/evaluation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="evaluation-api">
+<h1>Evaluation API<a class="headerlink" href="#evaluation-api" title="Link to this heading"></a></h1>
+<p>This section covers the evaluation methodology and results for the trajectory prediction model. We assess performance through multiple metrics and visualizations to ensure the model provides accurate and reliable predictions.</p>
+<section id="evaluation-methodology">
+<h2>Evaluation Methodology<a class="headerlink" href="#evaluation-methodology" title="Link to this heading"></a></h2>
+<p>The evaluation process involves both quantitative metrics and qualitative visualizations to assess the model’s performance in different scenarios.</p>
+<section id="evaluation-metrics">
+<h3>Evaluation Metrics<a class="headerlink" href="#evaluation-metrics" title="Link to this heading"></a></h3>
+<p>We employ several metrics to evaluate trajectory prediction accuracy:</p>
+<ul class="simple">
+<li><p><strong>Mean Displacement Error (MDE)</strong>: Average Euclidean distance between predicted and actual positions across all timesteps</p></li>
+<li><p><strong>Final Displacement Error (FDE)</strong>: Euclidean distance between the final predicted position and the actual final position</p></li>
+<li><p><strong>Speed-based Evaluation</strong>: Error metrics stratified by vehicle speed ranges (5 m/s, 10 m/s, 20 m/s)</p></li>
+<li><p><strong>Path Smoothness</strong>: Assessment of the predicted path’s smoothness using angle changes between consecutive trajectory segments</p></li>
+</ul>
+<p>The following code snippet shows how these metrics are calculated:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">evaluate_model_performance</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_seq_test</span><span class="p">,</span> <span class="n">X_lidar_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">segment_info_test</span><span class="p">,</span> <span class="n">scaler_target</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Evaluate model performance with advanced metrics&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Evaluating model performance...&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Get predictions</span>
+    <span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="n">X_seq_test</span><span class="p">,</span> <span class="n">X_lidar_test</span><span class="p">])</span>
+
+    <span class="c1"># Reshape predictions and ground truth for inverse transformation</span>
+    <span class="n">pred_reshaped</span> <span class="o">=</span> <span class="n">predictions</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">y_test_reshaped</span> <span class="o">=</span> <span class="n">y_test</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># Inverse transform to get real-world displacements</span>
+    <span class="n">pred_original</span> <span class="o">=</span> <span class="n">scaler_target</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">pred_reshaped</span><span class="p">)</span>
+    <span class="n">y_test_original</span> <span class="o">=</span> <span class="n">scaler_target</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">y_test_reshaped</span><span class="p">)</span>
+
+    <span class="c1"># Reshape back</span>
+    <span class="n">pred_original</span> <span class="o">=</span> <span class="n">pred_original</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">predictions</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">y_test_original</span> <span class="o">=</span> <span class="n">y_test_original</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+    <span class="c1"># Calculate displacement error</span>
+    <span class="n">displacement_errors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">pred_original</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">y_test_original</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span>
+        <span class="p">(</span><span class="n">pred_original</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">y_test_original</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Calculate metrics</span>
+    <span class="n">mean_displacement_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">displacement_errors</span><span class="p">)</span>
+    <span class="n">final_displacement_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">displacement_errors</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># Speed-based evaluation</span>
+    <span class="n">speed_thresholds</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>  <span class="c1"># Speed thresholds in m/s</span>
+    <span class="k">for</span> <span class="n">threshold</span> <span class="ow">in</span> <span class="n">speed_thresholds</span><span class="p">:</span>
+        <span class="n">high_speed_indices</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">info</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">segment_info_test</span><span class="p">)</span>
+                             <span class="k">if</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;max_speed&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">high_speed_indices</span><span class="p">:</span>
+            <span class="n">high_speed_errors</span> <span class="o">=</span> <span class="n">displacement_errors</span><span class="p">[</span><span class="n">high_speed_indices</span><span class="p">]</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mean displacement error at speed &gt;</span><span class="si">{</span><span class="n">threshold</span><span class="si">}</span><span class="s2"> m/s: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">high_speed_errors</span><span class="p">)</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Calculate path smoothness</span>
+    <span class="n">path_smoothness</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pred_original</span><span class="p">)):</span>
+        <span class="c1"># Calculate curvature changes along the path</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">convert_relative_to_absolute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pred_original</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="c1"># Calculate path angles</span>
+        <span class="n">angles</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">v1</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">path</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">v2</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">path</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+
+            <span class="c1"># Calculate angle between vectors</span>
+            <span class="n">dot_product</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span>
+            <span class="n">norm_v1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
+            <span class="n">norm_v2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
+
+            <span class="c1"># Handle zero vectors or numerical issues</span>
+            <span class="k">if</span> <span class="n">norm_v1</span> <span class="o">&lt;</span> <span class="mf">1e-6</span> <span class="ow">or</span> <span class="n">norm_v2</span> <span class="o">&lt;</span> <span class="mf">1e-6</span><span class="p">:</span>
+                <span class="n">angles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">cosine</span> <span class="o">=</span> <span class="n">dot_product</span> <span class="o">/</span> <span class="p">(</span><span class="n">norm_v1</span> <span class="o">*</span> <span class="n">norm_v2</span><span class="p">)</span>
+                <span class="c1"># Clip to handle floating point errors</span>
+                <span class="n">cosine</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">cosine</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+                <span class="n">angles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">cosine</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">angles</span><span class="p">:</span>
+            <span class="c1"># Lower values indicate smoother paths</span>
+            <span class="n">path_smoothness</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">angles</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;mean_displacement_error&#39;</span><span class="p">:</span> <span class="n">mean_displacement_error</span><span class="p">,</span>
+        <span class="s1">&#39;final_displacement_error&#39;</span><span class="p">:</span> <span class="n">final_displacement_error</span><span class="p">,</span>
+        <span class="s1">&#39;predictions&#39;</span><span class="p">:</span> <span class="n">pred_original</span><span class="p">,</span>
+        <span class="s1">&#39;ground_truth&#39;</span><span class="p">:</span> <span class="n">y_test_original</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="visualization-methods">
+<h3>Visualization Methods<a class="headerlink" href="#visualization-methods" title="Link to this heading"></a></h3>
+<p>We use several visualization methods to qualitatively analyze model performance:</p>
+<ol class="arabic simple">
+<li><p><strong>Trajectory Comparisons</strong>: Plots showing predicted paths versus ground truth</p></li>
+<li><p><strong>Steering Angle Analysis</strong>: Comparison of steering angles derived from predicted and actual paths</p></li>
+<li><p><strong>Training History</strong>: Visualization of loss curves during model training</p></li>
+<li><p><strong>Control Performance</strong>: Analysis of steering accuracy and position error when using the model for control</p></li>
+</ol>
+</section>
+<section id="trajectory-visualization">
+<h3>Trajectory Visualization<a class="headerlink" href="#trajectory-visualization" title="Link to this heading"></a></h3>
+<p>The following code generates visualizations of predicted versus actual trajectories:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">visualize_trajectory_predictions</span><span class="p">(</span><span class="n">true_trajectories</span><span class="p">,</span> <span class="n">predicted_trajectories</span><span class="p">,</span> <span class="n">segment_info</span><span class="p">,</span> <span class="n">n_samples</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Visualize true vs predicted trajectories with better presentations&quot;&quot;&quot;</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">n_samples</span><span class="p">))</span>
+
+    <span class="c1"># Select random samples</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">true_trajectories</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">true_trajectories</span><span class="p">)),</span>
+                              <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">indices</span><span class="p">):</span>
+        <span class="c1"># Get start position from segment info</span>
+        <span class="n">start_x</span> <span class="o">=</span> <span class="n">segment_info</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;start_x&#39;</span><span class="p">]</span>
+        <span class="n">start_y</span> <span class="o">=</span> <span class="n">segment_info</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;start_y&#39;</span><span class="p">]</span>
+
+        <span class="c1"># Convert relative displacements to absolute positions</span>
+        <span class="n">true_path</span> <span class="o">=</span> <span class="n">convert_relative_to_absolute</span><span class="p">(</span><span class="n">start_x</span><span class="p">,</span> <span class="n">start_y</span><span class="p">,</span> <span class="n">true_trajectories</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+        <span class="n">pred_path</span> <span class="o">=</span> <span class="n">convert_relative_to_absolute</span><span class="p">(</span><span class="n">start_x</span><span class="p">,</span> <span class="n">start_y</span><span class="p">,</span> <span class="n">predicted_trajectories</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+
+        <span class="c1"># Calculate steering angles from paths</span>
+        <span class="n">true_steering</span> <span class="o">=</span> <span class="n">calculate_steering_from_path</span><span class="p">(</span><span class="n">true_path</span><span class="p">)</span>
+        <span class="n">pred_steering</span> <span class="o">=</span> <span class="n">calculate_steering_from_path</span><span class="p">(</span><span class="n">pred_path</span><span class="p">)</span>
+
+        <span class="c1"># Plot the paths</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">true_path</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">true_path</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ground Truth&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pred_path</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">pred_path</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Predicted&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">start_x</span><span class="p">,</span> <span class="n">start_y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Start Position&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Calculate displacement error</span>
+        <span class="n">final_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">true_path</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">pred_path</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span>
+                             <span class="p">(</span><span class="n">true_path</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">pred_path</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Trajectory </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> (Speed: </span><span class="si">{</span><span class="n">segment_info</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s1">&#39;avg_speed&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> m/s)</span><span class="se">\n</span><span class="s2">&quot;</span>
+                 <span class="sa">f</span><span class="s2">&quot;Final Error: </span><span class="si">{</span><span class="n">final_error</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">m&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X Position (m)&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y Position (m)&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Plot steering angles</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">time_steps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">true_steering</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_steps</span><span class="p">,</span> <span class="n">true_steering</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ground Truth Steering&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_steps</span><span class="p">,</span> <span class="n">pred_steering</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Predicted Steering&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Steering Angles for Trajectory </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time Step&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Steering Angle (rad)&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="results">
+<h2>Results<a class="headerlink" href="#results" title="Link to this heading"></a></h2>
+<section id="training-performance">
+<h3>Training Performance<a class="headerlink" href="#training-performance" title="Link to this heading"></a></h3>
+<p>The training process was monitored using validation loss metrics. The figure below shows the training and validation loss curves:</p>
+<a class="reference internal image-reference" href="api/_static/training_history.png"><img alt="Training and validation loss curves" src="api/_static/training_history.png" style="width: 600px;" />
+</a>
+</section>
+<section id="trajectory-prediction-results">
+<h3>Trajectory Prediction Results<a class="headerlink" href="#trajectory-prediction-results" title="Link to this heading"></a></h3>
+<p>The model was evaluated on the test set, resulting in the following key metrics:</p>
+<ul class="simple">
+<li><p><strong>Mean Displacement Error</strong>: 0.1060 m</p></li>
+<li><p><strong>Final Displacement Error</strong>: 0.1181 m</p></li>
+<li><p><strong>Mean Displacement Error at speed &gt;5 m/s</strong>: 0.1059 m</p></li>
+<li><p><strong>Path Smoothness</strong>: 0.0455 rad</p></li>
+</ul>
+<p>Visual examples of the model’s trajectory predictions:</p>
+<a class="reference internal image-reference" href="api/_static/trajectory_predictions.png"><img alt="Example predicted trajectories compared to ground truth" src="api/_static/trajectory_predictions.png" style="width: 800px;" />
+</a>
+</section>
+<section id="control-system-evaluation">
+<h3>Control System Evaluation<a class="headerlink" href="#control-system-evaluation" title="Link to this heading"></a></h3>
+<p>We also evaluated the model’s performance when used as part of a control system:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">visualize_control_performance</span><span class="p">(</span><span class="n">control_df</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Visualize the control performance by comparing actual vs predicted steering&quot;&quot;&quot;</span>
+    <span class="c1"># Filter to only rows with predictions</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">control_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;predicted_steering&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="c1"># Calculate steering error</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;steering_error&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;steering&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;predicted_steering&#39;</span><span class="p">]</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;abs_steering_error&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;steering_error&#39;</span><span class="p">])</span>
+
+    <span class="c1"># Calculate position error</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;position_error&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;predicted_x&#39;</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span>
+                                  <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;predicted_y&#39;</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># Plot steering comparison</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;steering&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Actual Steering&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;predicted_steering&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Predicted Steering&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Actual vs Predicted Steering&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Index&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Steering Angle (rad)&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;abs_steering_error&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Absolute Steering Error&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;position_error&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Position Error (m)&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Control Errors&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Index&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Error&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The control system evaluation yielded the following results:</p>
+<ul class="simple">
+<li><p><strong>Mean absolute steering error</strong>: 0.031 rad</p></li>
+<li><p><strong>Mean position error</strong>: 0.29 m</p></li>
+<li><p><strong>Performance at high speeds (&gt;20 m/s)</strong>: 0.52 m position error</p></li>
+</ul>
+<p>Control performance visualization:</p>
+<a class="reference internal image-reference" href="api/_static/control_performance.png"><img alt="Control system performance showing steering accuracy and position error" src="api/_static/control_performance.png" style="width: 800px;" />
+</a>
+</section>
+</section>
+<section id="interactive-visualization">
+<h2>Interactive Visualization<a class="headerlink" href="#interactive-visualization" title="Link to this heading"></a></h2>
+<p>For a more detailed exploration of the model’s performance, we provide an interactive visualization that shows the trajectory predictions and actual paths:</p>
+<p>The interactive visualization allows you to:</p>
+<ul class="simple">
+<li><p>Zoom in/out of the trajectory map</p></li>
+<li><p>Compare predicted and actual paths</p></li>
+<li><p>View the vehicle’s speed profile over time</p></li>
+<li><p>Examine specific points along the trajectory</p></li>
+</ul>
+</section>
+<section id="evaluation-analysis">
+<h2>Evaluation Analysis<a class="headerlink" href="#evaluation-analysis" title="Link to this heading"></a></h2>
+<section id="strengths">
+<h3>Strengths<a class="headerlink" href="#strengths" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>High accuracy at moderate speeds</strong>: The model performs particularly well for trajectories with speeds between 5-15 m/s</p></li>
+<li><p><strong>Path smoothness</strong>: The predicted trajectories maintain realistic smoothness characteristics</p></li>
+<li><p><strong>Low computational requirements</strong>: The model can generate predictions in real-time, making it suitable for control applications</p></li>
+</ul>
+</section>
+<section id="limitations">
+<h3>Limitations<a class="headerlink" href="#limitations" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Performance degradation at high speeds</strong>: Accuracy decreases for vehicles moving faster than 20 m/s</p></li>
+<li><p><strong>Limited prediction horizon</strong>: The model provides reliable predictions up to 2 seconds into the future, with increasing uncertainty beyond that</p></li>
+<li><p><strong>Dependencies on LiDAR quality</strong>: Prediction accuracy correlates with point cloud density and quality</p></li>
+</ul>
+</section>
+<section id="future-improvements">
+<h3>Future Improvements<a class="headerlink" href="#future-improvements" title="Link to this heading"></a></h3>
+<p>Based on the evaluation results, several areas for future improvement have been identified:</p>
+<ol class="arabic simple">
+<li><p><strong>Extended training on high-speed scenarios</strong>: Incorporate more high-speed driving data to improve performance in these regimes</p></li>
+<li><p><strong>Advanced sensor fusion</strong>: Integrate camera data alongside LiDAR for improved environmental understanding</p></li>
+<li><p><strong>Uncertainty estimation</strong>: Add capability to predict confidence intervals alongside trajectory predictions</p></li>
+<li><p><strong>Adversarial testing</strong>: Evaluate the model under challenging conditions like adverse weather or sensor failures</p></li>
+<li><p><strong>Longer prediction horizons</strong>: Extend the model to provide useful predictions further into the future</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="training.html" class="btn btn-neutral float-left" title="Training API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../examples.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, cdxv.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

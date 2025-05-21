@@ -1,0 +1,928 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data API &mdash; TimeSeriesDocumentation 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/style.css?v=272ca84e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Model API" href="model.html" />
+    <link rel="prev" title="Installation" href="../installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            TimeSeriesDocumentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#system-architecture">System Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#key-concepts">Key Concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../overview.html#relative-displacement-representation">Relative Displacement Representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview.html#point-cloud-processing">Point Cloud Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../overview.html#trajectory-evaluation">Trajectory Evaluation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#use-cases">Use Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#technology-stack">Technology Stack</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#required-dependencies">Required Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#installation-options">Installation Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#installing-from-pypi">Installing from PyPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#installing-from-source">Installing from Source</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#carla-simulator-setup">CARLA Simulator Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#verifying-installation">Verifying Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#common-issues">Common Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation.html#system-specific-notes">System-Specific Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#getting-help">Getting Help</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-loading">Data Loading</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#load_lidar_point_cloud"><code class="docutils literal notranslate"><span class="pre">load_lidar_point_cloud()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#map_timestamps_to_lidar"><code class="docutils literal notranslate"><span class="pre">map_timestamps_to_lidar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load_camera_image"><code class="docutils literal notranslate"><span class="pre">load_camera_image()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#map_timestamps_to_images"><code class="docutils literal notranslate"><span class="pre">map_timestamps_to_images()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#point-cloud-processing">Point Cloud Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sample_point_cloud"><code class="docutils literal notranslate"><span class="pre">sample_point_cloud()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#process_point_cloud"><code class="docutils literal notranslate"><span class="pre">process_point_cloud()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#vehicle-data-processing">Vehicle Data Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#calculate_vehicle_dynamics"><code class="docutils literal notranslate"><span class="pre">calculate_vehicle_dynamics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calculate_relative_displacement"><code class="docutils literal notranslate"><span class="pre">calculate_relative_displacement()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filter_and_segment_data"><code class="docutils literal notranslate"><span class="pre">filter_and_segment_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#image-processing">Image Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#process_camera_image"><code class="docutils literal notranslate"><span class="pre">process_camera_image()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extract_road_features"><code class="docutils literal notranslate"><span class="pre">extract_road_features()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#augment_camera_images"><code class="docutils literal notranslate"><span class="pre">augment_camera_images()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#map-data-processing">Map Data Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#load_carla_map"><code class="docutils literal notranslate"><span class="pre">load_carla_map()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get_map_image"><code class="docutils literal notranslate"><span class="pre">get_map_image()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#project_vehicle_to_map"><code class="docutils literal notranslate"><span class="pre">project_vehicle_to_map()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#visualize_trajectory_on_map"><code class="docutils literal notranslate"><span class="pre">visualize_trajectory_on_map()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sequence-preparation">Sequence Preparation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prepare_relative_sequences"><code class="docutils literal notranslate"><span class="pre">prepare_relative_sequences()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prepare_multimodal_sequences"><code class="docutils literal notranslate"><span class="pre">prepare_multimodal_sequences()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#data-collection">Data Collection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setup_carla_client"><code class="docutils literal notranslate"><span class="pre">setup_carla_client()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configure_sensors"><code class="docutils literal notranslate"><span class="pre">configure_sensors()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#collect_vehicle_data"><code class="docutils literal notranslate"><span class="pre">collect_vehicle_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#capture_map_images"><code class="docutils literal notranslate"><span class="pre">capture_map_images()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#utility-functions">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#convert_relative_to_absolute"><code class="docutils literal notranslate"><span class="pre">convert_relative_to_absolute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calculate_steering_from_path"><code class="docutils literal notranslate"><span class="pre">calculate_steering_from_path()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#world_to_pixel"><code class="docutils literal notranslate"><span class="pre">world_to_pixel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pixel_to_world"><code class="docutils literal notranslate"><span class="pre">pixel_to_world()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Model API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model.html#model-architecture">Model Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="model.html#build_trajectory_prediction_model"><code class="docutils literal notranslate"><span class="pre">build_trajectory_prediction_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#point-cloud-encoder">Point Cloud Encoder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="model.html#build_point_cloud_encoder"><code class="docutils literal notranslate"><span class="pre">build_point_cloud_encoder()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#sequence-encoder">Sequence Encoder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="model.html#build_sequence_encoder"><code class="docutils literal notranslate"><span class="pre">build_sequence_encoder()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#loss-functions">Loss Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="model.html#weighted_displacement_loss"><code class="docutils literal notranslate"><span class="pre">weighted_displacement_loss()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#inference-functions">Inference Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="model.html#predict_future_trajectory"><code class="docutils literal notranslate"><span class="pre">predict_future_trajectory()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#model-serialization">Model Serialization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="training.html">Training API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="training.html#training-configuration">Training Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="training.html#build_and_train_model"><code class="docutils literal notranslate"><span class="pre">build_and_train_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#initialize_model_for_training"><code class="docutils literal notranslate"><span class="pre">initialize_model_for_training()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="training.html#training-callbacks">Training Callbacks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="training.html#early-stopping">Early Stopping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#learning-rate-scheduling">Learning Rate Scheduling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#model-checkpointing">Model Checkpointing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="training.html#hyperparameter-tuning">Hyperparameter Tuning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="training.html#tune_learning_rate"><code class="docutils literal notranslate"><span class="pre">tune_learning_rate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="training.html#data-augmentation">Data Augmentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="training.html#augment_sequence_data"><code class="docutils literal notranslate"><span class="pre">augment_sequence_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#augment_lidar_data"><code class="docutils literal notranslate"><span class="pre">augment_lidar_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="training.html#cross-validation">Cross-Validation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="training.html#perform_cross_validation"><code class="docutils literal notranslate"><span class="pre">perform_cross_validation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="training.html#training-visualization">Training Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="training.html#plot_training_history"><code class="docutils literal notranslate"><span class="pre">plot_training_history()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Evaluation API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="evaluation.html#evaluation-methodology">Evaluation Methodology</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="evaluation.html#evaluation-metrics">Evaluation Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evaluation.html#visualization-methods">Visualization Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evaluation.html#trajectory-visualization">Trajectory Visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="evaluation.html#results">Results</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="evaluation.html#training-performance">Training Performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evaluation.html#trajectory-prediction-results">Trajectory Prediction Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evaluation.html#control-system-evaluation">Control System Evaluation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="evaluation.html#interactive-visualization">Interactive Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evaluation.html#evaluation-analysis">Evaluation Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="evaluation.html#strengths">Strengths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evaluation.html#limitations">Limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evaluation.html#future-improvements">Future Improvements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples.html#advanced-control">Advanced Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples.html#visualization">Visualization</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">TimeSeriesDocumentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Data API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/data.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="data-api">
+<h1>Data API<a class="headerlink" href="#data-api" title="Link to this heading"></a></h1>
+<p>The Data API provides utilities for loading, processing, and managing trajectory data from the CARLA simulator.</p>
+<section id="data-loading">
+<h2>Data Loading<a class="headerlink" href="#data-loading" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="load_lidar_point_cloud">
+<span class="sig-name descname"><span class="pre">load_lidar_point_cloud</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#load_lidar_point_cloud" title="Link to this definition"></a></dt>
+<dd><p>Load LiDAR point cloud from a PLY file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file_path</strong> (<em>str</em>) – Path to the PLY file</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Numpy array of shape (N, 4) containing x, y, z coordinates and intensity</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example usage</span>
+<span class="n">point_cloud</span> <span class="o">=</span> <span class="n">load_lidar_point_cloud</span><span class="p">(</span><span class="s2">&quot;lidar_1234567890.ply&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">point_cloud</span><span class="p">)</span><span class="si">}</span><span class="s2"> points with shape </span><span class="si">{</span><span class="n">point_cloud</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="map_timestamps_to_lidar">
+<span class="sig-name descname"><span class="pre">map_timestamps_to_lidar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ego_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lidar_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#map_timestamps_to_lidar" title="Link to this definition"></a></dt>
+<dd><p>Map timestamps from ego vehicle data to corresponding LiDAR files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ego_df</strong> (<em>pandas.DataFrame</em>) – DataFrame containing ego vehicle data with ‘timestamp’ column</p></li>
+<li><p><strong>lidar_path</strong> (<em>str</em>) – Path to directory containing LiDAR files</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary mapping timestamps to LiDAR file paths</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="load_camera_image">
+<span class="sig-name descname"><span class="pre">load_camera_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#load_camera_image" title="Link to this definition"></a></dt>
+<dd><p>Load camera image from file (PNG, JPEG).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file_path</strong> (<em>str</em>) – Path to the image file</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>RGB image as numpy array of shape (H, W, 3)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example usage</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">load_camera_image</span><span class="p">(</span><span class="s2">&quot;rgb_1234567890.png&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded image with shape </span><span class="si">{</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="map_timestamps_to_images">
+<span class="sig-name descname"><span class="pre">map_timestamps_to_images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ego_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">camera_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rgb'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#map_timestamps_to_images" title="Link to this definition"></a></dt>
+<dd><p>Map timestamps from ego vehicle data to corresponding camera images.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ego_df</strong> (<em>pandas.DataFrame</em>) – DataFrame containing ego vehicle data with ‘timestamp’ column</p></li>
+<li><p><strong>image_path</strong> (<em>str</em>) – Path to directory containing image files</p></li>
+<li><p><strong>camera_type</strong> (<em>str</em>) – Type of camera images (‘rgb’, ‘depth’, ‘semantic’)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary mapping timestamps to image file paths</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="point-cloud-processing">
+<h2>Point Cloud Processing<a class="headerlink" href="#point-cloud-processing" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="sample_point_cloud">
+<span class="sig-name descname"><span class="pre">sample_point_cloud</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sample_point_cloud" title="Link to this definition"></a></dt>
+<dd><p>Sample a fixed number of points from a point cloud with improved sampling strategy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>points</strong> (<em>numpy.ndarray</em>) – Input point cloud array of shape (N, D)</p></li>
+<li><p><strong>n_points</strong> (<em>int</em>) – Number of points to sample (default: 1024)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sampled point cloud of shape (n_points, D)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+<p>Key features:</p>
+<ul class="simple">
+<li><p>Distance-based weighting prioritizes points closer to the vehicle</p></li>
+<li><p>Handles point clouds with fewer points than requested</p></li>
+<li><p>Ensures consistent output dimension regardless of input size</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="process_point_cloud">
+<span class="sig-name descname"><span class="pre">process_point_cloud</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#process_point_cloud" title="Link to this definition"></a></dt>
+<dd><p>Process point cloud data with advanced normalization techniques.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>points</strong> (<em>numpy.ndarray</em>) – Input point cloud array</p></li>
+<li><p><strong>max_points</strong> (<em>int</em>) – Maximum number of points (default: 1024)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Processed point cloud with normalized features</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+<p>Processing steps:</p>
+<ol class="arabic simple">
+<li><p>Center points using robust median centering</p></li>
+<li><p>Scale to unit sphere using 90th percentile normalization</p></li>
+<li><p>Normalize intensity values to [0,1] range</p></li>
+</ol>
+</dd></dl>
+
+</section>
+<section id="vehicle-data-processing">
+<h2>Vehicle Data Processing<a class="headerlink" href="#vehicle-data-processing" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="calculate_vehicle_dynamics">
+<span class="sig-name descname"><span class="pre">calculate_vehicle_dynamics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ego_df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calculate_vehicle_dynamics" title="Link to this definition"></a></dt>
+<dd><p>Calculate enhanced vehicle dynamics features from raw ego vehicle data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ego_df</strong> (<em>pandas.DataFrame</em>) – DataFrame with basic vehicle data</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>DataFrame with additional dynamics features</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+<p>Computed features include:</p>
+<ul class="simple">
+<li><p>Speed (magnitude of velocity)</p></li>
+<li><p>Heading (direction of travel)</p></li>
+<li><p>Acceleration components and magnitude</p></li>
+<li><p>Jerk (rate of change of acceleration)</p></li>
+<li><p>Heading change rate</p></li>
+<li><p>Curvature</p></li>
+<li><p>Movement state (binary indicator)</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="calculate_relative_displacement">
+<span class="sig-name descname"><span class="pre">calculate_relative_displacement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ego_df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calculate_relative_displacement" title="Link to this definition"></a></dt>
+<dd><p>Calculate relative displacements between consecutive frames.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ego_df</strong> (<em>pandas.DataFrame</em>) – DataFrame with vehicle positions</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>DataFrame with added relative displacement columns</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="filter_and_segment_data">
+<span class="sig-name descname"><span class="pre">filter_and_segment_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ego_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_speed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_segment_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#filter_and_segment_data" title="Link to this definition"></a></dt>
+<dd><p>Filter stationary data and segment into meaningful driving sequences.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ego_df</strong> (<em>pandas.DataFrame</em>) – DataFrame with vehicle dynamics</p></li>
+<li><p><strong>min_speed</strong> (<em>float</em>) – Minimum speed threshold for “moving” state</p></li>
+<li><p><strong>min_segment_length</strong> (<em>int</em>) – Minimum length of a valid segment</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Filtered DataFrame with segment information</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="image-processing">
+<h2>Image Processing<a class="headerlink" href="#image-processing" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="process_camera_image">
+<span class="sig-name descname"><span class="pre">process_camera_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(224,</span> <span class="pre">224)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#process_camera_image" title="Link to this definition"></a></dt>
+<dd><p>Process camera image for model input with resizing and normalization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>numpy.ndarray</em>) – Input RGB image</p></li>
+<li><p><strong>target_size</strong> (<em>tuple</em>) – Target image dimensions (height, width)</p></li>
+<li><p><strong>normalize</strong> (<em>bool</em>) – Whether to normalize pixel values to [0,1]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Processed image</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+<p>Processing steps:</p>
+<ol class="arabic simple">
+<li><p>Resize to target dimensions</p></li>
+<li><p>Convert to float32 data type</p></li>
+<li><p>Normalize pixel values if requested</p></li>
+<li><p>Handle different input formats (RGB, grayscale, etc.)</p></li>
+</ol>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="extract_road_features">
+<span class="sig-name descname"><span class="pre">extract_road_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">semantic_image</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#extract_road_features" title="Link to this definition"></a></dt>
+<dd><p>Extract road features from semantic segmentation image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>semantic_image</strong> (<em>numpy.ndarray</em>) – Semantic segmentation image</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Binary road mask and road boundary features</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="augment_camera_images">
+<span class="sig-name descname"><span class="pre">augment_camera_images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">images</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">augmentation_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#augment_camera_images" title="Link to this definition"></a></dt>
+<dd><p>Apply data augmentation techniques to camera images.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>images</strong> (<em>numpy.ndarray</em>) – Array of images</p></li>
+<li><p><strong>augmentation_strength</strong> (<em>float</em>) – Strength of augmentation (0.0 to 1.0)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Augmented images</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+<p>Augmentation techniques:</p>
+<ul class="simple">
+<li><p>Random brightness and contrast adjustment</p></li>
+<li><p>Random color jitter</p></li>
+<li><p>Random blur and noise addition</p></li>
+<li><p>Random horizontal flip (for training only)</p></li>
+</ul>
+</dd></dl>
+
+</section>
+<section id="map-data-processing">
+<h2>Map Data Processing<a class="headerlink" href="#map-data-processing" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="load_carla_map">
+<span class="sig-name descname"><span class="pre">load_carla_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#load_carla_map" title="Link to this definition"></a></dt>
+<dd><p>Load CARLA map data for a specific map.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>map_name</strong> (<em>str</em>) – Name of the CARLA map (e.g., ‘Town01’, ‘Town10HD’)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Map object with road network information</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="get_map_image">
+<span class="sig-name descname"><span class="pre">get_map_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pixels_per_meter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_lanes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#get_map_image" title="Link to this definition"></a></dt>
+<dd><p>Generate a bird’s-eye view image of a CARLA map.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>map_name</strong> (<em>str</em>) – Name of the CARLA map</p></li>
+<li><p><strong>pixels_per_meter</strong> (<em>int</em>) – Resolution factor for the image</p></li>
+<li><p><strong>include_lanes</strong> (<em>bool</em>) – Whether to include lane markings</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>RGB image of the map as numpy array</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example usage</span>
+<span class="n">map_img</span> <span class="o">=</span> <span class="n">get_map_image</span><span class="p">(</span><span class="s2">&quot;Town05&quot;</span><span class="p">,</span> <span class="n">pixels_per_meter</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">map_img</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Town05 Map&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="project_vehicle_to_map">
+<span class="sig-name descname"><span class="pre">project_vehicle_to_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vehicle_location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pixels_per_meter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#project_vehicle_to_map" title="Link to this definition"></a></dt>
+<dd><p>Project vehicle location to map image coordinates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vehicle_location</strong> (<em>tuple</em>) – Vehicle location (x, y) in world coordinates</p></li>
+<li><p><strong>map_data</strong> (<em>object</em>) – Map data object</p></li>
+<li><p><strong>pixels_per_meter</strong> (<em>int</em>) – Resolution factor of the map image</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(x, y) coordinates in the map image</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="visualize_trajectory_on_map">
+<span class="sig-name descname"><span class="pre">visualize_trajectory_on_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trajectory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(255,</span> <span class="pre">0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thickness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#visualize_trajectory_on_map" title="Link to this definition"></a></dt>
+<dd><p>Visualize vehicle trajectory on a map image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trajectory</strong> (<em>numpy.ndarray</em>) – Array of (x, y) positions in world coordinates</p></li>
+<li><p><strong>map_image</strong> (<em>numpy.ndarray</em>) – Map image as numpy array</p></li>
+<li><p><strong>color</strong> (<em>tuple</em>) – RGB color for trajectory visualization</p></li>
+<li><p><strong>thickness</strong> (<em>int</em>) – Line thickness for visualization</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Map image with trajectory overlay</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="sequence-preparation">
+<h2>Sequence Preparation<a class="headerlink" href="#sequence-preparation" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="prepare_relative_sequences">
+<span class="sig-name descname"><span class="pre">prepare_relative_sequences</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_processed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_to_lidar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prediction_horizon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_speed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prepare_relative_sequences" title="Link to this definition"></a></dt>
+<dd><p>Prepare input sequences with relative displacement representation for model training.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df_processed</strong> (<em>pandas.DataFrame</em>) – Processed vehicle data</p></li>
+<li><p><strong>timestamp_to_lidar</strong> (<em>dict</em>) – Mapping from timestamps to LiDAR files</p></li>
+<li><p><strong>seq_length</strong> (<em>int</em>) – Length of input sequence</p></li>
+<li><p><strong>prediction_horizon</strong> (<em>int</em>) – Number of future steps to predict</p></li>
+<li><p><strong>min_speed</strong> (<em>float</em>) – Minimum average speed threshold</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple containing (input sequences, LiDAR data, target sequences, input scaler, target scaler, segment info)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+<p>The returned data is structured as:</p>
+<ul class="simple">
+<li><p>X_seq: Array of shape (N, seq_length, n_features)</p></li>
+<li><p>X_lidar: Array of shape (N, 1024, 4)</p></li>
+<li><p>y_seq: Array of shape (N, prediction_horizon, 2)</p></li>
+<li><p>scaler_input: StandardScaler for input normalization</p></li>
+<li><p>scaler_target: StandardScaler for target normalization</p></li>
+<li><p>segment_info: List of dictionaries with segment metadata</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="prepare_multimodal_sequences">
+<span class="sig-name descname"><span class="pre">prepare_multimodal_sequences</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_processed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_to_lidar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_to_image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prediction_horizon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prepare_multimodal_sequences" title="Link to this definition"></a></dt>
+<dd><p>Prepare multimodal input sequences combining vehicle dynamics, LiDAR, and camera data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df_processed</strong> (<em>pandas.DataFrame</em>) – Processed vehicle data</p></li>
+<li><p><strong>timestamp_to_lidar</strong> (<em>dict</em>) – Mapping from timestamps to LiDAR files</p></li>
+<li><p><strong>timestamp_to_image</strong> (<em>dict</em>) – Mapping from timestamps to camera image files</p></li>
+<li><p><strong>map_data</strong> (<em>object</em>) – Map data object</p></li>
+<li><p><strong>seq_length</strong> (<em>int</em>) – Length of input sequence</p></li>
+<li><p><strong>prediction_horizon</strong> (<em>int</em>) – Number of future steps to predict</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple containing multimodal data components</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+<p>The returned data includes:</p>
+<ul class="simple">
+<li><p>Vehicle dynamics sequences</p></li>
+<li><p>LiDAR point cloud sequences</p></li>
+<li><p>Camera image sequences</p></li>
+<li><p>Map image patches centered on the vehicle</p></li>
+<li><p>Target trajectories</p></li>
+</ul>
+</dd></dl>
+
+</section>
+<section id="data-collection">
+<h2>Data Collection<a class="headerlink" href="#data-collection" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="setup_carla_client">
+<span class="sig-name descname"><span class="pre">setup_carla_client</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'localhost'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#setup_carla_client" title="Link to this definition"></a></dt>
+<dd><p>Setup connection to CARLA simulator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>host</strong> (<em>str</em>) – Host address of CARLA server</p></li>
+<li><p><strong>port</strong> (<em>int</em>) – Port number</p></li>
+<li><p><strong>timeout</strong> (<em>float</em>) – Connection timeout in seconds</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>CARLA client instance</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>carla.Client</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="configure_sensors">
+<span class="sig-name descname"><span class="pre">configure_sensors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vehicle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lidar_freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">camera_freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#configure_sensors" title="Link to this definition"></a></dt>
+<dd><p>Configure and attach sensors to a vehicle for data collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vehicle</strong> (<em>carla.Vehicle</em>) – Vehicle actor in simulation</p></li>
+<li><p><strong>output_path</strong> (<em>str</em>) – Path to save sensor data</p></li>
+<li><p><strong>lidar_freq</strong> (<em>int</em>) – LiDAR capture frequency in Hz</p></li>
+<li><p><strong>camera_freq</strong> (<em>int</em>) – Camera capture frequency in Hz</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary of attached sensors</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<p>Configured sensors include:</p>
+<ul class="simple">
+<li><p>RGB camera (front-facing)</p></li>
+<li><p>Depth camera (front-facing)</p></li>
+<li><p>Semantic segmentation camera (front-facing)</p></li>
+<li><p>LiDAR sensor (roof-mounted)</p></li>
+<li><p>GNSS sensor for positioning</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="collect_vehicle_data">
+<span class="sig-name descname"><span class="pre">collect_vehicle_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_vehicles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./data'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#collect_vehicle_data" title="Link to this definition"></a></dt>
+<dd><p>Collect comprehensive vehicle trajectory and sensor data in CARLA.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>client</strong> (<em>carla.Client</em>) – CARLA client instance</p></li>
+<li><p><strong>map_name</strong> (<em>str</em>) – Name of the map to use</p></li>
+<li><p><strong>duration</strong> (<em>int</em>) – Data collection duration in seconds</p></li>
+<li><p><strong>num_vehicles</strong> (<em>int</em>) – Number of background vehicles</p></li>
+<li><p><strong>save_path</strong> (<em>str</em>) – Path to save collected data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Path to saved data</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p>Data collection process:</p>
+<ol class="arabic simple">
+<li><p>Load specified map and set weather conditions</p></li>
+<li><p>Spawn autopilot ego vehicle with sensors</p></li>
+<li><p>Spawn background traffic</p></li>
+<li><p>Record vehicle state, sensor data, and ground truth trajectories</p></li>
+<li><p>Process and organize collected data</p></li>
+</ol>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="capture_map_images">
+<span class="sig-name descname"><span class="pre">capture_map_images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4096</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./maps'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#capture_map_images" title="Link to this definition"></a></dt>
+<dd><p>Capture high-resolution orthographic images of CARLA maps.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>client</strong> (<em>carla.Client</em>) – CARLA client instance</p></li>
+<li><p><strong>map_names</strong> (<em>list</em>) – List of map names to capture</p></li>
+<li><p><strong>resolution</strong> (<em>int</em>) – Image resolution</p></li>
+<li><p><strong>save_path</strong> (<em>str</em>) – Path to save map images</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary mapping map names to saved image paths</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<p>Captures various map representations:</p>
+<ul class="simple">
+<li><p>RGB aerial view</p></li>
+<li><p>Road network visualization</p></li>
+<li><p>Semantic segmentation view</p></li>
+<li><p>Lane marking visualization</p></li>
+</ul>
+</dd></dl>
+
+</section>
+<section id="utility-functions">
+<h2>Utility Functions<a class="headerlink" href="#utility-functions" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="convert_relative_to_absolute">
+<span class="sig-name descname"><span class="pre">convert_relative_to_absolute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative_displacements</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#convert_relative_to_absolute" title="Link to this definition"></a></dt>
+<dd><p>Convert relative displacements to absolute positions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_x</strong> (<em>float</em>) – Starting x position</p></li>
+<li><p><strong>start_y</strong> (<em>float</em>) – Starting y position</p></li>
+<li><p><strong>relative_displacements</strong> (<em>numpy.ndarray</em>) – Array of relative displacements</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Array of absolute positions</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="calculate_steering_from_path">
+<span class="sig-name descname"><span class="pre">calculate_steering_from_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">future_positions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wheelbase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.7</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calculate_steering_from_path" title="Link to this definition"></a></dt>
+<dd><p>Calculate steering angles from a predicted path using bicycle model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>future_positions</strong> (<em>numpy.ndarray</em>) – Array of predicted positions</p></li>
+<li><p><strong>wheelbase</strong> (<em>float</em>) – Vehicle wheelbase length in meters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Array of steering angles</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="world_to_pixel">
+<span class="sig-name descname"><span class="pre">world_to_pixel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#world_to_pixel" title="Link to this definition"></a></dt>
+<dd><p>Convert world coordinates to pixel coordinates in map image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>location</strong> (<em>carla.Location</em>) – World location</p></li>
+<li><p><strong>map_data</strong> (<em>object</em>) – Map data object</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(x, y) pixel coordinates</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pixel_to_world">
+<span class="sig-name descname"><span class="pre">pixel_to_world</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pixel_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pixel_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pixel_to_world" title="Link to this definition"></a></dt>
+<dd><p>Convert pixel coordinates in map image to world coordinates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pixel_x</strong> (<em>int</em>) – X pixel coordinate</p></li>
+<li><p><strong>pixel_y</strong> (<em>int</em>) – Y pixel coordinate</p></li>
+<li><p><strong>map_data</strong> (<em>object</em>) – Map data object</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(x, y) world coordinates</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="model.html" class="btn btn-neutral float-right" title="Model API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, cdxv.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

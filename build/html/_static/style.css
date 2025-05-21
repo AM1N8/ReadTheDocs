@@ -1,0 +1,16 @@
+/* Custom CSS for documentation */
+.wy-nav-content {
+    max-width: 1200px;
+}
+
+.rst-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+.code-block {
+    background: #f8f8f8;
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 20px;
+}

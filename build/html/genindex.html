@@ -1,0 +1,737 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Index &mdash; TimeSeriesDocumentation 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/style.css?v=272ca84e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            TimeSeriesDocumentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#system-architecture">System Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#key-concepts">Key Concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#relative-displacement-representation">Relative Displacement Representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#point-cloud-processing">Point Cloud Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#trajectory-evaluation">Trajectory Evaluation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#use-cases">Use Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#technology-stack">Technology Stack</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#required-dependencies">Required Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installation-options">Installation Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#installing-from-pypi">Installing from PyPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#installing-from-source">Installing from Source</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#carla-simulator-setup">CARLA Simulator Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#verifying-installation">Verifying Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#common-issues">Common Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#system-specific-notes">System-Specific Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#getting-help">Getting Help</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/data.html">Data API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/data.html#data-loading">Data Loading</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#load_lidar_point_cloud"><code class="docutils literal notranslate"><span class="pre">load_lidar_point_cloud()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#map_timestamps_to_lidar"><code class="docutils literal notranslate"><span class="pre">map_timestamps_to_lidar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#load_camera_image"><code class="docutils literal notranslate"><span class="pre">load_camera_image()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#map_timestamps_to_images"><code class="docutils literal notranslate"><span class="pre">map_timestamps_to_images()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/data.html#point-cloud-processing">Point Cloud Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#sample_point_cloud"><code class="docutils literal notranslate"><span class="pre">sample_point_cloud()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#process_point_cloud"><code class="docutils literal notranslate"><span class="pre">process_point_cloud()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/data.html#vehicle-data-processing">Vehicle Data Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#calculate_vehicle_dynamics"><code class="docutils literal notranslate"><span class="pre">calculate_vehicle_dynamics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#calculate_relative_displacement"><code class="docutils literal notranslate"><span class="pre">calculate_relative_displacement()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#filter_and_segment_data"><code class="docutils literal notranslate"><span class="pre">filter_and_segment_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/data.html#image-processing">Image Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#process_camera_image"><code class="docutils literal notranslate"><span class="pre">process_camera_image()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#extract_road_features"><code class="docutils literal notranslate"><span class="pre">extract_road_features()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#augment_camera_images"><code class="docutils literal notranslate"><span class="pre">augment_camera_images()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/data.html#map-data-processing">Map Data Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#load_carla_map"><code class="docutils literal notranslate"><span class="pre">load_carla_map()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#get_map_image"><code class="docutils literal notranslate"><span class="pre">get_map_image()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#project_vehicle_to_map"><code class="docutils literal notranslate"><span class="pre">project_vehicle_to_map()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#visualize_trajectory_on_map"><code class="docutils literal notranslate"><span class="pre">visualize_trajectory_on_map()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/data.html#sequence-preparation">Sequence Preparation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#prepare_relative_sequences"><code class="docutils literal notranslate"><span class="pre">prepare_relative_sequences()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#prepare_multimodal_sequences"><code class="docutils literal notranslate"><span class="pre">prepare_multimodal_sequences()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/data.html#data-collection">Data Collection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#setup_carla_client"><code class="docutils literal notranslate"><span class="pre">setup_carla_client()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#configure_sensors"><code class="docutils literal notranslate"><span class="pre">configure_sensors()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#collect_vehicle_data"><code class="docutils literal notranslate"><span class="pre">collect_vehicle_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#capture_map_images"><code class="docutils literal notranslate"><span class="pre">capture_map_images()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/data.html#utility-functions">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#convert_relative_to_absolute"><code class="docutils literal notranslate"><span class="pre">convert_relative_to_absolute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#calculate_steering_from_path"><code class="docutils literal notranslate"><span class="pre">calculate_steering_from_path()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#world_to_pixel"><code class="docutils literal notranslate"><span class="pre">world_to_pixel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data.html#pixel_to_world"><code class="docutils literal notranslate"><span class="pre">pixel_to_world()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/model.html">Model API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/model.html#model-architecture">Model Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/model.html#build_trajectory_prediction_model"><code class="docutils literal notranslate"><span class="pre">build_trajectory_prediction_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/model.html#point-cloud-encoder">Point Cloud Encoder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/model.html#build_point_cloud_encoder"><code class="docutils literal notranslate"><span class="pre">build_point_cloud_encoder()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/model.html#sequence-encoder">Sequence Encoder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/model.html#build_sequence_encoder"><code class="docutils literal notranslate"><span class="pre">build_sequence_encoder()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/model.html#loss-functions">Loss Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/model.html#weighted_displacement_loss"><code class="docutils literal notranslate"><span class="pre">weighted_displacement_loss()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/model.html#inference-functions">Inference Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/model.html#predict_future_trajectory"><code class="docutils literal notranslate"><span class="pre">predict_future_trajectory()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/model.html#model-serialization">Model Serialization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/training.html">Training API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/training.html#training-configuration">Training Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/training.html#build_and_train_model"><code class="docutils literal notranslate"><span class="pre">build_and_train_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/training.html#initialize_model_for_training"><code class="docutils literal notranslate"><span class="pre">initialize_model_for_training()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/training.html#training-callbacks">Training Callbacks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/training.html#early-stopping">Early Stopping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/training.html#learning-rate-scheduling">Learning Rate Scheduling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/training.html#model-checkpointing">Model Checkpointing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/training.html#hyperparameter-tuning">Hyperparameter Tuning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/training.html#tune_learning_rate"><code class="docutils literal notranslate"><span class="pre">tune_learning_rate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/training.html#data-augmentation">Data Augmentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/training.html#augment_sequence_data"><code class="docutils literal notranslate"><span class="pre">augment_sequence_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/training.html#augment_lidar_data"><code class="docutils literal notranslate"><span class="pre">augment_lidar_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/training.html#cross-validation">Cross-Validation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/training.html#perform_cross_validation"><code class="docutils literal notranslate"><span class="pre">perform_cross_validation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/training.html#training-visualization">Training Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/training.html#plot_training_history"><code class="docutils literal notranslate"><span class="pre">plot_training_history()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/evaluation.html">Evaluation API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/evaluation.html#evaluation-methodology">Evaluation Methodology</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/evaluation.html#evaluation-metrics">Evaluation Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/evaluation.html#visualization-methods">Visualization Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/evaluation.html#trajectory-visualization">Trajectory Visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/evaluation.html#results">Results</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/evaluation.html#training-performance">Training Performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/evaluation.html#trajectory-prediction-results">Trajectory Prediction Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/evaluation.html#control-system-evaluation">Control System Evaluation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/evaluation.html#interactive-visualization">Interactive Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/evaluation.html#evaluation-analysis">Evaluation Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/evaluation.html#strengths">Strengths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/evaluation.html#limitations">Limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/evaluation.html#future-improvements">Future Improvements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#advanced-control">Advanced Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#visualization">Visualization</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">TimeSeriesDocumentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Index</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ 
+</div>
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    augment_camera_images()
+
+      <ul>
+        <li><a href="api/data.html#augment_camera_images">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    augment_lidar_data()
+
+      <ul>
+        <li><a href="api/training.html#augment_lidar_data">built-in function</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    augment_sequence_data()
+
+      <ul>
+        <li><a href="api/training.html#augment_sequence_data">built-in function</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    build_and_train_model()
+
+      <ul>
+        <li><a href="api/training.html#build_and_train_model">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    build_point_cloud_encoder()
+
+      <ul>
+        <li><a href="api/model.html#build_point_cloud_encoder">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    build_sequence_encoder()
+
+      <ul>
+        <li><a href="api/model.html#build_sequence_encoder">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    build_trajectory_prediction_model()
+
+      <ul>
+        <li><a href="api/model.html#build_trajectory_prediction_model">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    built-in function
+
+      <ul>
+        <li><a href="api/data.html#augment_camera_images">augment_camera_images()</a>
+</li>
+        <li><a href="api/training.html#augment_lidar_data">augment_lidar_data()</a>
+</li>
+        <li><a href="api/training.html#augment_sequence_data">augment_sequence_data()</a>
+</li>
+        <li><a href="api/training.html#build_and_train_model">build_and_train_model()</a>
+</li>
+        <li><a href="api/model.html#build_point_cloud_encoder">build_point_cloud_encoder()</a>
+</li>
+        <li><a href="api/model.html#build_sequence_encoder">build_sequence_encoder()</a>
+</li>
+        <li><a href="api/model.html#build_trajectory_prediction_model">build_trajectory_prediction_model()</a>
+</li>
+        <li><a href="api/data.html#calculate_relative_displacement">calculate_relative_displacement()</a>
+</li>
+        <li><a href="api/data.html#calculate_steering_from_path">calculate_steering_from_path()</a>
+</li>
+        <li><a href="api/data.html#calculate_vehicle_dynamics">calculate_vehicle_dynamics()</a>
+</li>
+        <li><a href="api/data.html#capture_map_images">capture_map_images()</a>
+</li>
+        <li><a href="api/data.html#collect_vehicle_data">collect_vehicle_data()</a>
+</li>
+        <li><a href="api/data.html#configure_sensors">configure_sensors()</a>
+</li>
+        <li><a href="api/data.html#convert_relative_to_absolute">convert_relative_to_absolute()</a>
+</li>
+        <li><a href="api/data.html#extract_road_features">extract_road_features()</a>
+</li>
+        <li><a href="api/data.html#filter_and_segment_data">filter_and_segment_data()</a>
+</li>
+        <li><a href="api/data.html#get_map_image">get_map_image()</a>
+</li>
+        <li><a href="api/training.html#initialize_model_for_training">initialize_model_for_training()</a>
+</li>
+        <li><a href="api/data.html#load_camera_image">load_camera_image()</a>
+</li>
+        <li><a href="api/data.html#load_carla_map">load_carla_map()</a>
+</li>
+        <li><a href="api/data.html#load_lidar_point_cloud">load_lidar_point_cloud()</a>
+</li>
+        <li><a href="api/data.html#map_timestamps_to_images">map_timestamps_to_images()</a>
+</li>
+        <li><a href="api/data.html#map_timestamps_to_lidar">map_timestamps_to_lidar()</a>
+</li>
+        <li><a href="api/training.html#perform_cross_validation">perform_cross_validation()</a>
+</li>
+        <li><a href="api/data.html#pixel_to_world">pixel_to_world()</a>
+</li>
+        <li><a href="api/training.html#plot_training_history">plot_training_history()</a>
+</li>
+        <li><a href="api/model.html#predict_future_trajectory">predict_future_trajectory()</a>
+</li>
+        <li><a href="api/data.html#prepare_multimodal_sequences">prepare_multimodal_sequences()</a>
+</li>
+        <li><a href="api/data.html#prepare_relative_sequences">prepare_relative_sequences()</a>
+</li>
+        <li><a href="api/data.html#process_camera_image">process_camera_image()</a>
+</li>
+        <li><a href="api/data.html#process_point_cloud">process_point_cloud()</a>
+</li>
+        <li><a href="api/data.html#project_vehicle_to_map">project_vehicle_to_map()</a>
+</li>
+        <li><a href="api/data.html#sample_point_cloud">sample_point_cloud()</a>
+</li>
+        <li><a href="api/data.html#setup_carla_client">setup_carla_client()</a>
+</li>
+        <li><a href="api/training.html#tune_learning_rate">tune_learning_rate()</a>
+</li>
+        <li><a href="api/data.html#visualize_trajectory_on_map">visualize_trajectory_on_map()</a>
+</li>
+        <li><a href="api/model.html#weighted_displacement_loss">weighted_displacement_loss()</a>
+</li>
+        <li><a href="api/data.html#world_to_pixel">world_to_pixel()</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    calculate_relative_displacement()
+
+      <ul>
+        <li><a href="api/data.html#calculate_relative_displacement">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    calculate_steering_from_path()
+
+      <ul>
+        <li><a href="api/data.html#calculate_steering_from_path">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    calculate_vehicle_dynamics()
+
+      <ul>
+        <li><a href="api/data.html#calculate_vehicle_dynamics">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    capture_map_images()
+
+      <ul>
+        <li><a href="api/data.html#capture_map_images">built-in function</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    collect_vehicle_data()
+
+      <ul>
+        <li><a href="api/data.html#collect_vehicle_data">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    configure_sensors()
+
+      <ul>
+        <li><a href="api/data.html#configure_sensors">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    convert_relative_to_absolute()
+
+      <ul>
+        <li><a href="api/data.html#convert_relative_to_absolute">built-in function</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    extract_road_features()
+
+      <ul>
+        <li><a href="api/data.html#extract_road_features">built-in function</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    filter_and_segment_data()
+
+      <ul>
+        <li><a href="api/data.html#filter_and_segment_data">built-in function</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    get_map_image()
+
+      <ul>
+        <li><a href="api/data.html#get_map_image">built-in function</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    initialize_model_for_training()
+
+      <ul>
+        <li><a href="api/training.html#initialize_model_for_training">built-in function</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    load_camera_image()
+
+      <ul>
+        <li><a href="api/data.html#load_camera_image">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    load_carla_map()
+
+      <ul>
+        <li><a href="api/data.html#load_carla_map">built-in function</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    load_lidar_point_cloud()
+
+      <ul>
+        <li><a href="api/data.html#load_lidar_point_cloud">built-in function</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    map_timestamps_to_images()
+
+      <ul>
+        <li><a href="api/data.html#map_timestamps_to_images">built-in function</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    map_timestamps_to_lidar()
+
+      <ul>
+        <li><a href="api/data.html#map_timestamps_to_lidar">built-in function</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    perform_cross_validation()
+
+      <ul>
+        <li><a href="api/training.html#perform_cross_validation">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    pixel_to_world()
+
+      <ul>
+        <li><a href="api/data.html#pixel_to_world">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    plot_training_history()
+
+      <ul>
+        <li><a href="api/training.html#plot_training_history">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    predict_future_trajectory()
+
+      <ul>
+        <li><a href="api/model.html#predict_future_trajectory">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    prepare_multimodal_sequences()
+
+      <ul>
+        <li><a href="api/data.html#prepare_multimodal_sequences">built-in function</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    prepare_relative_sequences()
+
+      <ul>
+        <li><a href="api/data.html#prepare_relative_sequences">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    process_camera_image()
+
+      <ul>
+        <li><a href="api/data.html#process_camera_image">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    process_point_cloud()
+
+      <ul>
+        <li><a href="api/data.html#process_point_cloud">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    project_vehicle_to_map()
+
+      <ul>
+        <li><a href="api/data.html#project_vehicle_to_map">built-in function</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    sample_point_cloud()
+
+      <ul>
+        <li><a href="api/data.html#sample_point_cloud">built-in function</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    setup_carla_client()
+
+      <ul>
+        <li><a href="api/data.html#setup_carla_client">built-in function</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    tune_learning_rate()
+
+      <ul>
+        <li><a href="api/training.html#tune_learning_rate">built-in function</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    visualize_trajectory_on_map()
+
+      <ul>
+        <li><a href="api/data.html#visualize_trajectory_on_map">built-in function</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    weighted_displacement_loss()
+
+      <ul>
+        <li><a href="api/model.html#weighted_displacement_loss">built-in function</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    world_to_pixel()
+
+      <ul>
+        <li><a href="api/data.html#world_to_pixel">built-in function</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, cdxv.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
